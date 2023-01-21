@@ -1,0 +1,13 @@
+Sprint 2:
+	Planning:
+		Story 1.2 - SB & BR - 2 WP (User Story ist fast fertig)
+		Story 1.3 - SB & BR - 2 WP
+		Story 2.1 - SB & BR - 3 WP
+	First daily:
+		Jeder arbeitet an seinen Punkten. Es ist aktuell nichts unklar.
+	Second daily:
+		Die Stories 1.2 & 1.3 sind fertig umgesetzt.
+		Wir arbeiten gerade an 2.1.
+	Retrospective:
+		Es wurden alle User Stories in dem Sprint umgesetzt. Also die aus Sprint 1 und Sprint 2 sind jetzt fertig.
+		Die interne Kommunikation funktioniert auch gut.

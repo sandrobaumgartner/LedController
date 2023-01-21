@@ -54,6 +54,7 @@ public class Main {
                 int id = Integer.parseInt(reader.readLine());
                 System.out.print("Enter color: ");
                 String color = reader.readLine();
+                ledController.setLED(id, color);
             }
         }
     }

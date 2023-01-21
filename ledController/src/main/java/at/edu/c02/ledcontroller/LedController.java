@@ -12,4 +12,5 @@ public interface LedController {
     void getSpecificLED(int id) throws IOException;
     ArrayList<JSONObject> turnOffAllLEDs() throws IOException;
     void runLight(String color, int rounds) throws IOException, InterruptedException;
+    void setLED(int id, String color) throws IOException;
 }

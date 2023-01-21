@@ -90,4 +90,10 @@ public class LedControllerImpl implements LedController {
         }
         this.turnOffAllLEDs();
     }
+
+    @Override
+    public void setLED(int id, String color) throws IOException {
+        apiService.setLight(id, color, true);
+        System.out.println("LED color set!");
+    }
 }

@@ -5,7 +5,9 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
@@ -33,12 +35,23 @@ public class ApiServiceImpl implements ApiService {
         return makeApiGetRequest(new URL("https://balanced-civet-91.hasura.app/api/rest/lights/" + id));
     }
 
+    @Override
+    public JSONObject setLight(int id, String color, Boolean on) throws IOException {
+        JSONObject light = new JSONObject();
+        light.put("id", id);
+        light.put("color", color);
+        light.put("state", on);
+        return makeApiPUTRequest(new URL("https://balanced-civet-91.hasura.app/api/rest/setLight"), light.toString());
+    }
+
+
     private JSONObject makeApiGetRequest(URL url) throws IOException {
         // Connect to the server
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        // and send a GET request
+
         connection.setRequestMethod("GET");
-        connection.setRequestProperty("X-Hasura-Group-ID", "Todo");
+        connection.setRequestProperty("X-Hasura-Group-ID", "5e1d1708ae935");
+
         // Read the response code
         int responseCode = connection.getResponseCode();
         if(responseCode != HttpURLConnection.HTTP_OK) {
@@ -60,5 +73,31 @@ public class ApiServiceImpl implements ApiService {
         String jsonText = sb.toString();
         // Convert response into a json object
         return new JSONObject(jsonText);
+    }
+
+    private JSONObject makeApiPUTRequest(URL url, String body) throws IOException {
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("PUT");
+        connection.setRequestProperty("X-Hasura-Group-ID", "5e1d1708ae935");
+        connection.setRequestProperty("Content-Type", "application/json");
+        connection.setRequestProperty("Accept", "application/json");
+        connection.setDoOutput(true);
+
+        try(OutputStream os = connection.getOutputStream()) {
+            byte[] input = body.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+
+        try(BufferedReader br = new BufferedReader(
+                new InputStreamReader(connection.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim());
+            }
+
+            String jsonText = response.toString();
+            return new JSONObject(jsonText);
+        }
     }
 }

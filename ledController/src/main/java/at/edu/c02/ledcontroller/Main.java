@@ -22,6 +22,8 @@ public class Main {
             System.out.println("Enter 'demo' to send a demo request");
             System.out.println("Enter 'groupstatus' to get Group LEDs");
             System.out.println("Enter 'status' to get the status of one LED");
+            System.out.println("Enter 'spinningled' to spin the LEDs");
+            System.out.println("Enter 'setled' to set a LED");
             System.out.println("Enter 'exit' to exit the program");
             input = reader.readLine();
             if(input.equalsIgnoreCase("demo"))
@@ -35,6 +37,23 @@ public class Main {
                 System.out.print("PLease specify LED: ");
                 int id = Integer.parseInt(reader.readLine());
                 ledController.getSpecificLED(id);
+            }
+            if(input.equalsIgnoreCase("spinningled")) {
+                System.out.print("Enter color: ");
+                String color = reader.readLine();
+                System.out.print("Enter amount of turns: ");
+                int amountTurns = Integer.parseInt(reader.readLine());
+                try {
+                    ledController.runLight(color, amountTurns);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(input.equalsIgnoreCase("setled")) {
+                System.out.print("Enter LED ID: ");
+                int id = Integer.parseInt(reader.readLine());
+                System.out.print("Enter color: ");
+                String color = reader.readLine();
             }
         }
     }

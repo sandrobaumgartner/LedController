@@ -3,8 +3,11 @@ Sprint 3:
 		Story 2.2 - SB & BR - 2 WP
 		Story 2.3 - SB & BR - 5 WP
 	First daily:
-	
+		Story 2.2 ist fertig.
+		An Story 2.3 wird gearbeitet.
+		Wir sind gut in der Zeit
 	Second daily:
-	
+		Alle Stories in diesem Sprint sind bereits abgeschlossen, deswegen wird bereits an User Story 2.4 gearbeitet.
 	Retrospective:
+		
 	

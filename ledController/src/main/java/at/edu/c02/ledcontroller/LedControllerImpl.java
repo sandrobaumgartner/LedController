@@ -45,12 +45,22 @@ public class LedControllerImpl implements LedController {
             if(group.getString("name").equals("G")) {
                 lightsForGroup.add(light);
                 int id = light.getInt("id");
-                Boolean status = light.getBoolean("on");
+                String status = light.getBoolean("on") ? "on" : "off";
                 String color = light.getString("color");
                 System.out.println("LED " + id + " is currently " + status + ". Color: " + color);
             }
         }
 
         return lightsForGroup;
+    }
+
+    @Override
+    public void getSpecificLED(int id) throws IOException {
+        JSONObject response = apiService.getLight(id);
+        JSONObject light = response.getJSONArray("lights").getJSONObject(0);
+        int idByApi = light.getInt("id");
+        String status = light.getBoolean("on") ? "on" : "off";
+        String color = light.getString("color");
+        System.out.println("LED " + idByApi + " is currently " + status + ". Color: " + color);
     }
 }

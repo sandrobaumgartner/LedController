@@ -37,4 +37,14 @@ public class LedControllerTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void setLightTest() {
+        ApiService apiService = new ApiServiceImpl();
+        try {
+            apiService.setLight(47, "#FF0000", true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

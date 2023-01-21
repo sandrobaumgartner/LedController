@@ -14,4 +14,9 @@ public class ApiServiceMock implements ApiService{
     public JSONObject getLight(int id) throws IOException {
         return null;
     }
+
+    @Override
+    public JSONObject setLight(int id, String color, Boolean on) throws IOException {
+        return null;
+    }
 }

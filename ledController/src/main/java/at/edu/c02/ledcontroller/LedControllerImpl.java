@@ -76,4 +76,18 @@ public class LedControllerImpl implements LedController {
 
         return jsonObjects;
     }
+
+    @Override
+    public void runLight(String color, int rounds) throws IOException, InterruptedException {
+        this.turnOffAllLEDs();
+        for(int j = 0; j < rounds; j++) {
+            for(int i = 0; i < groupLEDs.length; i++) {
+                int ledId = groupLEDs[i];
+                apiService.setLight(ledId, color, true);
+                Thread.sleep(5000);
+                apiService.setLight(ledId, color, false);
+            }
+        }
+        this.turnOffAllLEDs();
+    }
 }

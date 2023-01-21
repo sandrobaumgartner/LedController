@@ -66,4 +66,17 @@ public class LedControllerTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void roundLightTest() {
+        ApiService apiService = new ApiServiceImpl();
+        LedController ledController = new LedControllerImpl(apiService);
+        try {
+            ledController.runLight("#FF0000", 3);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }

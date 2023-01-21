@@ -1,11 +1,11 @@
-Sprint 3:
+Sprint 4:
 	Planning:
 		3.1 - SB & BR - 2 WP
 		3.2 - SB & BR - 5 WP
 		3.3 - SB & BR - 1 WP
 	First daily:
-		
+		Wir sind sehr gut in der Zeit. Punkt 3.1 ist fertig. Und Punkt 3.2 ist in Bearbeitung.
 	Second daily:
-		
+		Punkt 3.2 ist fertig und es fehlt nur mehr die Demo Anwendung.
 	Retrospective:
 		

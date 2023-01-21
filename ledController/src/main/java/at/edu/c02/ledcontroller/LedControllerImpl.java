@@ -4,7 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * This class handles the actual logic
@@ -12,6 +12,8 @@ import java.util.ArrayList;
 public class LedControllerImpl implements LedController {
     private final ApiService apiService;
     private final int[] groupLEDs = {46, 47, 48, 49, 50, 51, 52, 53};
+    private final int firstId = 46;
+    private final int lastId = 53;
 
     public LedControllerImpl(ApiService apiService)
     {
@@ -95,5 +97,33 @@ public class LedControllerImpl implements LedController {
     public void setLED(int id, String color) throws IOException {
         apiService.setLight(id, color, true);
         System.out.println("LED color set!");
+    }
+
+    @Override
+    public void spinWheel(int amountSteps) throws IOException {
+        for(int i = 0; i < amountSteps; i++) {
+            ArrayList<JSONObject> groupLEDs = this.getGroupLEDs();
+            HashMap<Integer, String> idWithColor = new HashMap<Integer, String>();
+            for (JSONObject led : groupLEDs) {
+                idWithColor.put(led.getInt("id"), led.getString("color"));
+            }
+
+            TreeMap<Integer, String> sortedIdWithColor = new TreeMap<>();
+            sortedIdWithColor.putAll(idWithColor);
+
+            for (Map.Entry<Integer, String> light : sortedIdWithColor.entrySet()) {
+                if(light.getKey() == firstId) {
+                    apiService.setLight(light.getKey(), sortedIdWithColor.get(lastId), true);
+                }
+                if(light.getKey() != firstId) {
+                    apiService.setLight(light.getKey(), sortedIdWithColor.get(light.getKey() - 1), true);
+                }
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

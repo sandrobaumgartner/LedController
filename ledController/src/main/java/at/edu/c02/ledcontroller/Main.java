@@ -24,6 +24,7 @@ public class Main {
             System.out.println("Enter 'status' to get the status of one LED");
             System.out.println("Enter 'spinningled' to spin the LEDs");
             System.out.println("Enter 'setled' to set a LED");
+            System.out.println("Enter 'spinningwheel' to spin the wheel");
             System.out.println("Enter 'exit' to exit the program");
             input = reader.readLine();
             if(input.equalsIgnoreCase("demo"))
@@ -55,6 +56,11 @@ public class Main {
                 System.out.print("Enter color: ");
                 String color = reader.readLine();
                 ledController.setLED(id, color);
+            }
+            if(input.equalsIgnoreCase("spinningwheel")) {
+                System.out.print("Enter how many steps: ");
+                int steps = Integer.parseInt(reader.readLine());
+                ledController.spinWheel(steps);
             }
         }
     }

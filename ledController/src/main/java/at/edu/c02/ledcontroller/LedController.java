@@ -13,4 +13,5 @@ public interface LedController {
     ArrayList<JSONObject> turnOffAllLEDs() throws IOException;
     void runLight(String color, int rounds) throws IOException, InterruptedException;
     void setLED(int id, String color) throws IOException;
+    void spinWheel(int amountSteps) throws IOException;
 }

@@ -9,5 +9,7 @@ Sprint 3:
 	Second daily:
 		Alle Stories in diesem Sprint sind bereits abgeschlossen, deswegen wird bereits an User Story 2.4 gearbeitet.
 	Retrospective:
-		
+		Der Sprint lief gut. Alle Stories wurden geschafft und auch schon eine mehr.
+		EPIC 1 & 2 sind jetzt komplett fertig.
+		Die User Stories wurden beim Planning etwas zu viel gewichtet und man hätte sich mehr vornehmen können.
 	

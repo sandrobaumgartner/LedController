@@ -10,4 +10,5 @@ public interface LedController {
     void demo() throws IOException;
     ArrayList<JSONObject> getGroupLEDs() throws IOException;
     void getSpecificLED(int id) throws IOException;
+    ArrayList<JSONObject> turnOffAllLEDs() throws IOException;
 }

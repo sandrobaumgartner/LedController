@@ -11,6 +11,7 @@ import java.util.ArrayList;
  */
 public class LedControllerImpl implements LedController {
     private final ApiService apiService;
+    private final int[] groupLEDs = {46, 47, 48, 49, 50, 51, 52, 53};
 
     public LedControllerImpl(ApiService apiService)
     {
@@ -62,5 +63,17 @@ public class LedControllerImpl implements LedController {
         String status = light.getBoolean("on") ? "on" : "off";
         String color = light.getString("color");
         System.out.println("LED " + idByApi + " is currently " + status + ". Color: " + color);
+    }
+
+    @Override
+    public ArrayList<JSONObject> turnOffAllLEDs() throws IOException {
+        ArrayList<JSONObject> jsonObjects = new ArrayList<>();
+        for(int i = 0; i < groupLEDs.length; i++) {
+            int ledId = groupLEDs[i];
+            JSONObject response = apiService.setLight(ledId, "#000", false);
+            jsonObjects.add(response);
+        }
+
+        return jsonObjects;
     }
 }

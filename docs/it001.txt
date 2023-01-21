@@ -1,4 +1,4 @@
-Programmier Gruppe G: Sandro Baumgartner (SB), Bischoy Rizk (BR), Leonid Tahiraj
+Gruppe G: Sandro Baumgartner (SB), Bischoy Rizk (BR)
 Weight Points (WP)
 
 Sprint 1 Planning: 
@@ -9,3 +9,10 @@ Sprint 1 Planning:
 	First daily:
 		Issues wurden angelegt
 		Dev Team ist gerade dabei Story 1.1 umzusetzen
+	Second daily:
+		Story 1.1 wurde erledigt
+		Dev Team arbeitet an Story 1.2
+	Retrospective:
+		Der Sprint hatte einige Schwierigkeiten.
+		Es wurde nicht alles geschafft.
+		Nächstens Sprint mit weniger User Stories befüllen.

@@ -1,8 +1,13 @@
 package at.edu.c02.ledcontroller;
 
+import org.json.JSONObject;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 
 public class LedControllerTest {
@@ -13,5 +18,23 @@ public class LedControllerTest {
     @Test
     public void dummyTest() {
         assertEquals(1, 1);
+    }
+
+    @Test
+    public void getGroupLEDsTest() {
+        ApiService apiService = new ApiServiceMock();
+        LedController ledController = new LedControllerImpl(apiService);
+
+        try {
+            ArrayList<JSONObject> lights = ledController.getGroupLEDs();
+            for (JSONObject light : lights) {
+                JSONObject group = light.getJSONObject("groupByGroup");
+                if(!group.getString("name").equals("G")) {
+                    assertTrue(false);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

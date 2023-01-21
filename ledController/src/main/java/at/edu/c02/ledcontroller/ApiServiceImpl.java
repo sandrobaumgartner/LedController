@@ -2,10 +2,7 @@ package at.edu.c02.ledcontroller;
 
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -48,10 +45,7 @@ public class ApiServiceImpl implements ApiService {
     private JSONObject makeApiGetRequest(URL url) throws IOException {
         // Connect to the server
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
         connection.setRequestMethod("GET");
-        connection.setRequestProperty("X-Hasura-Group-ID", "5e1d1708ae934");
-
         // Read the response code
         int responseCode = connection.getResponseCode();
         if(responseCode != HttpURLConnection.HTTP_OK) {
@@ -78,7 +72,10 @@ public class ApiServiceImpl implements ApiService {
     private JSONObject makeApiPUTRequest(URL url, String body) throws IOException {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("PUT");
-        connection.setRequestProperty("X-Hasura-Group-ID", "5e1d1708ae935");
+        BufferedReader brSecret = new BufferedReader(new FileReader("../secret.txt"));
+        String secret = brSecret .readLine();
+
+        connection.setRequestProperty("X-Hasura-Group-ID", secret);
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setRequestProperty("Accept", "application/json");
         connection.setDoOutput(true);

@@ -47,4 +47,23 @@ public class LedControllerTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void turnOffAllLightsTest() {
+        ApiServiceMock apiService = new ApiServiceMock();
+        LedController ledController = new LedControllerImpl(apiService);
+
+        try {
+            ArrayList<JSONObject> lights = ledController.turnOffAllLEDs();
+            for (JSONObject light : lights) {
+                JSONObject lightResponse = light.getJSONObject("update_lights_by_pk");
+                boolean on = lightResponse.getBoolean("on");
+                if(on) {
+                    assertTrue(false);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

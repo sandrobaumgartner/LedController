@@ -1,11 +1,12 @@
 Gruppe G: Sandro Baumgartner (SB), Bischoy Rizk (BR)
 Weight Points (WP)
 
-Sprint 1 Planning: 
-	Sprint Backlog: 
-		Story 1.1 - SB & BR - 2 WP
-		Story 1.2 - SB & BR - 5 WP
-		Story 1.3 - SB & BR - 2 WP - hängt von 1.1 und 1.2 ab
+Sprint 1: 
+	Planning:
+		Sprint Backlog: 
+			Story 1.1 - SB & BR - 2 WP
+			Story 1.2 - SB & BR - 5 WP
+			Story 1.3 - SB & BR - 2 WP - hängt von 1.1 und 1.2 ab
 	First daily:
 		Issues wurden angelegt
 		Dev Team ist gerade dabei Story 1.1 umzusetzen
@@ -14,5 +15,14 @@ Sprint 1 Planning:
 		Dev Team arbeitet an Story 1.2
 	Retrospective:
 		Der Sprint hatte einige Schwierigkeiten.
-		Es wurde nicht alles geschafft.
+		Es wurde nicht alles geschafft, da es Probleme mit Mockito gegeben hat und wir deswegen bei User Story 1.2 hängen geblieben sind.
+		Diese User Story wird im nächsten Sprint priorisiert.
 		Nächstens Sprint mit weniger User Stories befüllen.
+
+Sprint 2:
+	Planning:
+		Story 1.2 - SB & BR - 2 WP (User Story ist fast fertig)
+		Story 1.3 - SB & BR - 2 WP
+		Story 2.1 - SB & BR - 3 WP
+	First daily:
+		

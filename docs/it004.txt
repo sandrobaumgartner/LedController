@@ -8,4 +8,6 @@ Sprint 4:
 	Second daily:
 		Punkt 3.2 ist fertig und es fehlt nur mehr die Demo Anwendung, also Punkt 3.3.
 	Retrospective:
-		
+		Dieser Sprint war sehr gut aufgeplant. Es konnten alle User Stories abgeschlossen werden.
+		EPIC 1, 2 & 3 sind somit vollständig abgeschlossen.
+		Aufgrund der geringen Gruppengröße von nur 2 Personen sind wir nicht zu EPIC 4 gekommen.
